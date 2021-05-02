@@ -12,7 +12,7 @@ export const Task = (props) => {
             <span className={'task-time'}>{props.time}</span>
 
             {(props.subtasks !== undefined)
-            ? <img alt={''} src={arrow} className={'task-arrow'}/>
+            ? <img alt={''} src={arrow} className={`task-arrow ${props.size}`}/>
             : null}
 
             {(props.subtasks !== undefined)

@@ -1,0 +1,53 @@
+.habits {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  padding: 15px 25px;
+  margin-top: 25px;
+  width: 40%;
+  height: 240px;
+  font: normal 350 24px/32px Segoe UI, sans-serif;
+  margin-right: 2%;
+  transition: 500ms;
+}
+
+.habits-list {
+  position: relative;
+  top: 20px;
+  left: -20px;
+}
+
+.habits-date {
+  position: absolute;
+  top: -30px;
+  /* left: 50%; */
+
+  display: flex;
+  justify-content: center;
+
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+
+  background: var(--main-block-color);
+}
+
+.habits-date img {
+  position: absolute;
+  top: 60%;
+  height: 20px;
+  cursor: pointer;
+}
+
+.habits-date p {
+  margin: 15px 0;
+  cursor: default;
+}
+
+.habits:hover {
+  transition: 500ms;
+  box-shadow: 3px 4px 8px rgb(204 187 164 / 40%);
+}

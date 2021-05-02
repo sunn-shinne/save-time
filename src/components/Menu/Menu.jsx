@@ -16,15 +16,15 @@ export const Menu = () => {
       <div className={cs.MenuItems}>
         <div className={cs.MenuItem}>
           <img alt={''} src={img1} className={cs.MenuItemIcon}/>
-          <Link className={cs.MenuItemText} to='/today'>Today</Link>
+          <Link className={cs.MenuItemText} to='/today'>today</Link>
         </div>
         <div className={cs.MenuItem}>
           <img alt={''} src={img2} className={cs.MenuItemIcon}/>
-          <Link className={cs.MenuItemText} to='/this-week'>This week</Link>
+          <Link className={cs.MenuItemText} to='/this-week'>week</Link>
         </div>
         <div className={cs.MenuItem}>
           <img alt={''} src={img3} className={cs.MenuItemIcon}/>
-          <Link className={cs.MenuItemText} to='/habits-tracker'>Habits tracker</Link>
+          <Link className={cs.MenuItemText} to='/habits-tracker'>habits tracker</Link>
         </div>
       </div>
     </div>

@@ -1,29 +1,30 @@
-.today {
+.today-habits {
   position: relative;
-  width: 50%;
-  height: 548px;
-  padding: 15px 30px;
   background: white;
   border-radius: 10px;
-  margin-right: 2%;
+  width: 100%;
+  height: 433px;
+  padding: 15px 25px;
   transition: 500ms;
 }
 
-.today-title {
-  font: normal 350 36px/48px Segoe UI, sans-serif;
+.today-habits-title {
   margin: 0;
-  margin-bottom: 1em;
+  font: normal 350 36px/48px Segoe UI, sans-serif;
+  z-index: 10;
 }
 
-.today-img {
+.today-habits-img {
   position: absolute;
   width: 100%;
+  height: 100%;
   bottom: 0;
   left: 0;
   border-radius: 10px;
+  z-index: 1;
 }
 
-.today:hover {
+.today-habits:hover {
   transition: 500ms;
   box-shadow: 3px 4px 8px rgb(204 187 164 / 40%);
 }

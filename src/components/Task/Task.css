@@ -51,3 +51,7 @@
 .small {
   font: normal 350 12px/16px Segoe UI, sans-serif;
 }
+
+.task-arrow.small {
+  top: 2em;
+}

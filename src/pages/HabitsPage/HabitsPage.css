@@ -1,0 +1,4 @@
+.habits-page {
+    display: flex;
+    flex-flow: wrap;
+}

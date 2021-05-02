@@ -1,0 +1,33 @@
+.habits-stat {
+    position: relative;
+    display: block;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    margin-top: 25px;
+    width: 50%;
+    transition: 500ms;
+    padding-bottom: 40px;
+}
+
+.habits-stat-month {
+    font: normal 350 36px/48px Segoe UI, sans-serif;
+    margin-top: 10px;
+}
+
+.habits-stat:hover {
+    transition: 500ms;
+    box-shadow: 3px 4px 8px rgb(204 187 164 / 40%);
+}
+
+.habits-stat-progress {
+    width: 80%;
+}
+
+.habits-stat img {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+}

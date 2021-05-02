@@ -1,0 +1,36 @@
+.progress-block {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.progress-block p {
+    position: relative;
+    text-align: left;
+    left: 1.5em;;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    position: relative;
+    display: inline-block;
+    width: 90%;
+    height: 20px;
+    background: var(--main-block-color);
+    border-radius: 10px;
+    left: .3em;
+}
+
+.progress-block span {
+    position: relative;
+    display: inline-block;
+    left: 1.5em;
+    bottom: .3em;
+}
+
+.progress-value {
+    background: #CFB9A4;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 200ms ease-in;
+}

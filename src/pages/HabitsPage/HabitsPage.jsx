@@ -1,10 +1,16 @@
+import './HabitsPage.css'
+import { Habits } from '../../components/Habits/Habits'
+import { HabitsStat } from '../../components/HabitsStat/HabitsStat'
 
 export const HabitsPage = () => {
+  const habits = [
+    {text: 'read 30 minutes', stat: 12}, 
+    {text: 'drink 5 glasses of water', stat: 72}, 
+    {text: 'workout 45 minutes', stat: 35}]
     return (
-      <div>
-        <p>
-          HABITS_PAGE
-        </p>
+      <div className={'habits-page'}>
+        <Habits  habits={habits} />
+        <HabitsStat habits={habits} />
       </div>
     )
   }

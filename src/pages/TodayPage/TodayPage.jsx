@@ -1,17 +1,17 @@
 import './TodayPage.css'
-import { Today } from '../../components/Today/Today'
+import { TodayTasks } from '../../components/TodayTasks/TodayTasks'
 import { DayInfo } from '../../components/DayInfo/DayInfo'
-import { HabitsTracker } from '../../components/HabitTracker/HabitsTracker'
+import { TodayHabits } from '../../components/TodayHabits/TodayHabits'
 
 export const TodayPage = () => {
   const date = '01.04.2021'
   const day = 'sunday'
     return (
       <div className={'today-page'}>
-        <Today />
+        <TodayTasks />
         <div className={'today-page-left-side'}>
           <DayInfo date={date} day={day} />
-          <HabitsTracker />
+          <TodayHabits />
         </div>
         
       </div>
