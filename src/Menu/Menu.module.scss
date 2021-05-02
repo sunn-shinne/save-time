@@ -1,0 +1,49 @@
+.Menu {
+  position: absolute;
+  width: 18%;
+  height: 705px;
+  left: 51px;
+  top: 16px;
+
+  background: #DED4CA;
+  border-radius: 10px;
+}
+
+.SameTime {
+  width: 110px;
+  height: 36px;
+  left: 136px;
+  top: 17px;
+
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.12em;
+
+  color: #000000;
+}
+
+.Text {
+  height: 28px;
+  left: 113px;
+  top: 127px;
+
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: 350;
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: blink;
+  margin-top: 10px;
+
+  color: #000000;
+}
+
