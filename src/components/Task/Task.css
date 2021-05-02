@@ -1,0 +1,53 @@
+.task {
+  position: relative;
+  font: normal 350 18px/24px Segoe UI, sans-serif;
+  margin-top: 0.4em;
+  cursor: default;
+  z-index: 100;
+}
+
+.task input {
+  cursor: pointer;
+}
+
+.task-time {
+  position: absolute;
+  right: 5%;
+}
+
+.task-comment {
+  font: normal 350 14px/19px Segoe UI, sans-serif;
+  color: var(--secondary-text-color);
+  margin: 0;
+  margin-left: 40px;
+}
+
+.checkbox {
+  margin-top: 0.2em;
+  margin-right: 0.9em;
+}
+
+.task::after {
+  content: "";
+  display: block;
+
+  background: rgba(0, 0, 0, 0.15);
+  height: 1px;
+}
+
+.task-arrow {
+  width: 0.6em;
+  position: absolute;
+  top: 1.5em;
+  left: 30px;
+}
+
+.done {
+  text-decoration: line-through;
+  text-decoration-color: var(--secondary-text-color);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.small {
+  font: normal 350 12px/16px Segoe UI, sans-serif;
+}

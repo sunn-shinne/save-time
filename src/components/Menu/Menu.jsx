@@ -11,7 +11,7 @@ export const Menu = () => {
   return (
     <div className={cs.Menu}>
       <div className={cs.MenuTitle}>
-      <Link to='/home' className={cs.Title}>savetime</Link>
+      <Link to='/' className={cs.Title}>savetime</Link>
       </div>
       <div className={cs.MenuItems}>
         <div className={cs.MenuItem}>

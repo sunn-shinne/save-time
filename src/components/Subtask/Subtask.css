@@ -1,0 +1,12 @@
+.subtask {
+  margin-left: 40px;
+  font: normal 350 18px/24px Segoe UI, sans-serif;
+  cursor: default;
+}
+.subtask input {
+  cursor: pointer;
+}
+
+.small {
+  font: normal 350 12px/16px Segoe UI, sans-serif;
+}

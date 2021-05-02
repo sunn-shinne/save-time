@@ -1,0 +1,30 @@
+.habits-tracker {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  width: 100%;
+  height: 433px;
+  padding: 15px 25px;
+  transition: 500ms;
+}
+
+.habits-tracker-title {
+  margin: 0;
+  font: normal 350 36px/48px Segoe UI, sans-serif;
+  z-index: 10;
+}
+
+.habits-tracker-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.habits-tracker:hover {
+  transition: 500ms;
+  box-shadow: 3px 4px 8px rgb(204 187 164 / 40%);
+}

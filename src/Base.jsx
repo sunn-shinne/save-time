@@ -16,8 +16,8 @@ export const Base = () => {
       <Menu/>
       <div style={{right: '5%', top: '100px', position: 'absolute', width: '70%'}}>
         <Switch>
+          <Route path='/' component={HomePage} exact/>
           <Route path='/this-week' component={WeekPage}/>
-          <Route path='/home' component={HomePage} />
           <Route path='/today' component={TodayPage} />
           <Route path='/habits-tracker' component={HabitsPage} />
         </Switch>

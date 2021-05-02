@@ -1,0 +1,8 @@
+.today-page {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.today-page-left-side {
+  width: 40%;
+}

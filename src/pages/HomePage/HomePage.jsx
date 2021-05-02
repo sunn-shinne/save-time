@@ -14,9 +14,9 @@ export const HomePage = () => {
         </p>
       </div>
 
-      <button className={'button'}>start</button>
+      <button className={'button'} link={'/today'}>start</button>
 
-      <div className={'img'}>
+      <div className={'home-page-img'}>
         <img alt={''} src={girl} className={"girl"}/>
         <img alt={''} src={girlBg} className={"girl-bg"}/>
       </div>

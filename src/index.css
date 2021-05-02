@@ -14,9 +14,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 
   background: var(--main-bg-color);
   color: var(--primary-text-color);
+  overflow: hidden;
 }
 
 code {

@@ -1,0 +1,36 @@
+.week {
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  margin: 0 auto;
+  width: 900px;
+}
+
+.week-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.week-header span {
+  background: white;
+  border-radius: 10px;
+  font: normal 350 24px/32px Segoe UI, sans-serif;
+  padding: 0 20px;
+  cursor: default;
+}
+
+.week-header img {
+  position: relative;
+  top: 5px;
+  height: 27px;
+  padding: 0;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.week-img {
+  position: absolute;
+  right: 7%;
+  top: 53%;
+  z-index: 1;
+}

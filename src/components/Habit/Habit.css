@@ -1,0 +1,31 @@
+.habit {
+  position: relative;
+  font: normal 350 18px/24px Segoe UI, sans-serif;
+  margin-top: 0.4em;
+  cursor: default;
+  z-index: 100;
+}
+
+.habit input {
+  cursor: pointer;
+}
+
+.habit-time {
+  position: absolute;
+  right: 5%;
+}
+
+.checkbox {
+  margin-top: 0.2em;
+  margin-right: 0.9em;
+}
+
+.done {
+  text-decoration: line-through;
+  text-decoration-color: var(--secondary-text-color);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.small {
+  font: normal 350 12px/16px Segoe UI, sans-serif;
+}

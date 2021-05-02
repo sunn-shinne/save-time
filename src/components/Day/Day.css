@@ -1,0 +1,31 @@
+.day {
+  font: normal 350 12px/16px Segoe UI, sans-serif;
+  position: relative;
+  padding: 15px 30px;
+  padding-bottom: 25px;
+  background: white;
+  border-radius: 10px;
+
+  margin-bottom: 20px;
+  margin-right: 20px;
+
+  transition: 500ms;
+  z-index: 10;
+}
+
+.day-title {
+  font: normal 350 18px/24px Segoe UI, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+.day:nth-child(3n) {
+  margin-right: 0;
+}
+
+.day:hover {
+  transition: 500ms;
+  box-shadow: 3px 4px 8px rgb(204 187 164 / 40%);
+}
