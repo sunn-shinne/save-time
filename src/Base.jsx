@@ -1,21 +1,25 @@
-import {NavBar} from './NavBar/NavBar'
-import {Menu} from './Menu/Menu'
-import {TaskPage} from './TaskPage/TaskPage';
-import {BasePage} from './BasePage/BasePage';
+import {NavBar} from './components/NavBar/NavBar'
+import {Menu} from './components/Menu/Menu'
+import {WeekPage} from './pages/WeekPage/WeekPage';
+import {HomePage} from './pages/HomePage/HomePage';
+import {TodayPage} from './pages/TodayPage/TodayPage';
 import {
   Switch,
   Route,
 } from 'react-router-dom';
+import { HabitsPage } from './pages/HabitsPage/HabitsPage';
 
 export const Base = () => {
   return (
     <div>
       <NavBar/>
       <Menu/>
-      <div style={{left: '23%', top: '90px', position: 'absolute', border: '3px solid', width: '70%'}}>
+      <div style={{right: '5%', top: '100px', position: 'absolute', width: '70%'}}>
         <Switch>
-          <Route path='/task-page' component={TaskPage}/>
-          <Route path='/home' component={BasePage} />
+          <Route path='/this-week' component={WeekPage}/>
+          <Route path='/home' component={HomePage} />
+          <Route path='/today' component={TodayPage} />
+          <Route path='/habits-tracker' component={HabitsPage} />
         </Switch>
       </div>
     </div>

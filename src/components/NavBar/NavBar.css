@@ -1,0 +1,45 @@
+.nav-bar {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  match-parent: end;
+  width: 70%;
+  height: 60px;
+  right: 5%;
+  top: 15px;
+
+  background: var(--main-block-color);
+  border-radius: 10px;
+}
+
+.icons {
+  margin-right: 20px;
+  padding: 15px 0;
+}
+
+.icons img {
+  height: 27px;
+  margin-right: 20px;
+  align-items: center;
+  vertical-align: center;
+}
+
+.icons img:hover {
+  cursor: pointer;
+}
+
+.user-profile {
+  font: normal 350 24px/32px Segoe UI, sans-serif;
+
+  display: flex;
+  justify-content: center;
+
+  width: 50px;
+  padding-top: 0.35em;
+  margin: 5px 20px;
+
+  background: var(--main-bg-color);
+  border-radius: 100%;
+
+  cursor: pointer;
+}

@@ -1,0 +1,57 @@
+.home-page {
+  position: relative;
+  cursor: default;
+}
+
+.hello-block-title {
+  font: normal 300 64px/85px Segoe UI, sans-serif;
+  width: 350px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.hello-block-text {
+  font: normal 300 24px/32px Segoe UI, sans-serif;
+  width: 30%;
+  margin-bottom: 40px;
+}
+
+.button {
+  width: 198px;
+  height: 60px;
+  margin-top: 20px;
+
+  background: var(--extra-block-color);
+  font: normal 350 36px/48px Segoe UI, sans-serif;
+
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 3px 4px 8px rgba(204, 187, 164, 0.4);
+
+  transition: all 500ms;
+}
+
+.button:hover {
+  background: var(--hover-block-color);
+  transition: all 800ms;
+}
+
+.img {
+  position: absolute;
+  right: 5%;
+  top: 20%;
+}
+
+.girl {
+  position: absolute;
+  z-index: 10;
+  right: -10px;
+  top: -70px;
+}
+
+.girl-bg {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
