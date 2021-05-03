@@ -1,6 +1,6 @@
 import './Task.css'
 import { Subtask } from '../Subtask/Subtask'
-import arrow from '../../img/icons8-вниз-вправо-50.png'
+import arrow from '../../../img/icons8-вниз-вправо-50.png'
 
 export const Task = (props) => {
     return (

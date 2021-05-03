@@ -1,6 +1,6 @@
-import { Progress } from '../Progress/Progress'
+import { Progress } from '../../UI/Progress/Progress'
 import './HabitsStat.css'
-import img from '../../img/Vector5.png'
+import img from '../../../img/Vector5.png'
 
 
 export const HabitsStat = ({habits}) => {

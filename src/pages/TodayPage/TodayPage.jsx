@@ -1,7 +1,7 @@
 import './TodayPage.css'
-import { TodayTasks } from '../../components/TodayTasks/TodayTasks'
-import { DayInfo } from '../../components/DayInfo/DayInfo'
-import { TodayHabits } from '../../components/TodayHabits/TodayHabits'
+import { TodayTasks } from '../../components/TodayPage/TodayTasks/TodayTasks'
+import { DayInfo } from '../../components/TodayPage/DayInfo/DayInfo'
+import { TodayHabits } from '../../components/TodayPage/TodayHabits/TodayHabits'
 
 export const TodayPage = () => {
   const date = '01.04.2021'

@@ -2,8 +2,8 @@ import './CalendarButton.css'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useState } from 'react';
-import calendar from '../../img/icons8-calendar.svg'
-import { dateToString } from '../../utils/dateToString'
+import calendar from '../../../img/icons8-calendar.svg'
+import { dateToString } from '../../../utils/dateToString'
 
 export const CalendarButton = ({setDate, value}) => {
 

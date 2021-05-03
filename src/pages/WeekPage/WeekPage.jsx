@@ -1,4 +1,4 @@
-import { Day } from '../../components/Day/Day';
+import { Day } from '../../components/WeekPage/Day/Day';
 import './WeekPage.css'
 import calendar from '../../img/icons8-calendar.svg'
 import girl from '../../img/girl-checking-phone-during-free-time-1.svg'

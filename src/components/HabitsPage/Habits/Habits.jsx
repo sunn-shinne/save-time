@@ -1,8 +1,8 @@
 import './Habits.css'
-import { Habit } from '../Habit/Habit'
-import { CalendarButton } from '../CalendarButton/CalendarButton'
+import { Habit } from '../../UI/Habit/Habit'
+import { CalendarButton } from '../../UI/CalendarButton/CalendarButton'
 import { useState } from 'react';
-import { dateToString } from '../../utils/dateToString'
+import { dateToString } from '../../../utils/dateToString'
 
 
 export const Habits = ({habits}) => {

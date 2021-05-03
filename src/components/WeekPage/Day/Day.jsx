@@ -1,5 +1,5 @@
 import './Day.css'
-import { Task } from '../Task/Task'
+import { Task } from '../../UI/Task/Task'
 
 export const Day = (props) => {
   return (

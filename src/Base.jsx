@@ -1,5 +1,5 @@
-import {NavBar} from './components/NavBar/NavBar'
-import {Menu} from './components/Menu/Menu'
+import {NavBar} from './components/UI/NavBar/NavBar'
+import {Menu} from './components/UI/Menu/Menu'
 import {WeekPage} from './pages/WeekPage/WeekPage';
 import {HomePage} from './pages/HomePage/HomePage';
 import {TodayPage} from './pages/TodayPage/TodayPage';

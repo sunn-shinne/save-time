@@ -1,6 +1,6 @@
 import './TodayTasks.css'
-import { Task } from '../Task/Task'
-import img from '../../img/Vector2.png'
+import { Task } from '../../UI/Task/Task'
+import img from '../../../img/Vector2.png'
 
 export const TodayTasks = () => {
   return (

@@ -1,5 +1,5 @@
 import './DayInfo.css'
-import img from '../../img/Vector4.png'
+import img from '../../../img/Vector4.png'
 
 export const DayInfo = ({date, day}) => {
     return (

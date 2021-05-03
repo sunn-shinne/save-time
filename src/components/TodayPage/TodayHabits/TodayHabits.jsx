@@ -1,6 +1,6 @@
-import { Habit } from '../Habit/Habit'
+import { Habit } from '../../UI/Habit/Habit'
 import './TodayHabits.css'
-import img from '../../img/Vector3.png'
+import img from '../../../img/Vector3.png'
 
 export const TodayHabits = () => {
     return (

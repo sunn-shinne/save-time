@@ -1,6 +1,6 @@
 import './HabitsPage.css'
-import { Habits } from '../../components/Habits/Habits'
-import { HabitsStat } from '../../components/HabitsStat/HabitsStat'
+import { Habits } from '../../components/HabitsPage/Habits/Habits'
+import { HabitsStat } from '../../components/HabitsPage/HabitsStat/HabitsStat'
 
 export const HabitsPage = () => {
   const habits = [

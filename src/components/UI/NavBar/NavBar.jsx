@@ -1,6 +1,6 @@
 import './NavBar.css'
-import iconPlus from '../../img/icons8-плюс.svg'
-import iconBell from '../../img/icons8-напоминания-50.png'
+import iconPlus from '../../../img/icons8-плюс.svg'
+import iconBell from '../../../img/icons8-напоминания-50.png'
 
 export const NavBar = () => {
   return (
