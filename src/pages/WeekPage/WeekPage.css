@@ -7,7 +7,9 @@
 }
 
 .week-header {
-  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
@@ -19,13 +21,16 @@
   cursor: default;
 }
 
-.week-header img {
+.calendar-wrapper {
   position: relative;
   top: 5px;
-  height: 27px;
   padding: 0;
   margin-left: 20px;
   cursor: pointer;
+}
+
+.calendar-wrapper img {
+  height: 27px;
 }
 
 .week-img {

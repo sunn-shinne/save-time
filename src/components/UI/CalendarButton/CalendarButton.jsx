@@ -3,7 +3,8 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useState } from 'react';
 import calendar from '../../../img/icons8-calendar.svg'
-import { dateToString } from '../../../utils/dateToString'
+import { dateToString } from '../../../utils/dateConfig'
+import { Overlay } from '../Overlay/Overlay'
 
 export const CalendarButton = ({setDate, value}) => {
 
@@ -25,7 +26,7 @@ export const CalendarButton = ({setDate, value}) => {
                 </div>
         : null}
 
-        { isCalendarOpen && <div className={'dark-bg'} onClick={() => setCalendar(!isCalendarOpen)}></div>}
+        <Overlay onClose={() => setCalendar(false)} isVisible={isCalendarOpen} />
         </>
 
         

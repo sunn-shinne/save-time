@@ -23,7 +23,6 @@
 .habits-date {
   position: absolute;
   top: -30px;
-  /* left: 50%; */
 
   display: flex;
   justify-content: center;

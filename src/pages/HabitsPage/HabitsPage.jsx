@@ -9,6 +9,7 @@ export const HabitsPage = () => {
     {text: 'workout 45 minutes', stat: 35}]
     return (
       <div className={'habits-page'}>
+
         <Habits  habits={habits} />
         <HabitsStat habits={habits} />
       </div>

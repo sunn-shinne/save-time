@@ -8,10 +8,10 @@
 .dark-bg {
     position: absolute;
     top: -500%;;
-    left: -1400%;
+    left: -10000%;
     z-index: 999;
-    width: 200vw;
-    height: 200vh;
+    width: 1000vw;
+    height: 400vh;
     background: rgba(0, 0, 0, .1);
 }
 

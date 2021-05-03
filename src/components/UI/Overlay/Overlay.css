@@ -1,0 +1,18 @@
+.overlay {
+    display: none;
+    position: absolute;
+    height: 1000vh;
+    width: 1000vh;
+    right: -200vh;
+    top: -300vh;
+    z-index: 999;
+    background: rgba(0, 0, 0, .2);
+    opacity: 0;
+    mouse-event: none;
+    transition: all 400ms  ease-out;
+}
+
+.overlay.visible {
+    display: block;
+    opacity: 1;
+}

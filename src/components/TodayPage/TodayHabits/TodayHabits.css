@@ -10,6 +10,7 @@
 
 .today-habits-title {
   margin: 0;
+  margin-bottom: 25px;
   font: normal 350 36px/48px Segoe UI, sans-serif;
   z-index: 10;
 }

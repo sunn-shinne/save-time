@@ -6,7 +6,7 @@ import img1 from '../../../img/icons8-cегодня-64.png'
 import img2 from '../../../img/icons8-меню_жирное.svg'
 import img3 from '../../../img/icons8-галочка.svg'
 
-
+ 
 export const Menu = () => {
   return (
     <div className={cs.Menu}>

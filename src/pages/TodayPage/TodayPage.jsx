@@ -2,10 +2,12 @@ import './TodayPage.css'
 import { TodayTasks } from '../../components/TodayPage/TodayTasks/TodayTasks'
 import { DayInfo } from '../../components/TodayPage/DayInfo/DayInfo'
 import { TodayHabits } from '../../components/TodayPage/TodayHabits/TodayHabits'
+import {dateToLongString, getDayName} from '../../utils/dateConfig'
 
 export const TodayPage = () => {
-  const date = '01.04.2021'
-  const day = 'sunday'
+  const today = new Date()
+  const date = dateToLongString(today)
+  const day = getDayName(today)
     return (
       <div className={'today-page'}>
         <TodayTasks />
