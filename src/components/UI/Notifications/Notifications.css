@@ -1,0 +1,50 @@
+.notifications {
+    position: absolute;
+    width: 526px;
+    padding: 15px 25px;
+    padding-bottom: 50px;
+    right: -600px;
+    top: 75px;
+    opacity: 0;
+
+    background: var(--main-bg-color);
+    border-radius: 10px;
+    z-index: 1000;
+    transition: all 300ms  ease-out;
+}
+
+.notifications.visible {
+    right: 20px;
+    opacity: 1;
+    transition: all 300ms  ease-out;
+}
+
+.notifications-title {
+    font: normal 350 18px/24px Segoe UI, sans-serif;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.notice {
+    position: relative;
+    font: normal 300 18px/24px Segoe UI, sans-serif;
+    margin-bottom: 15px;
+}
+
+.notice::after {
+    content: '';
+    position: absolute;
+    display: block;
+    background: rgba(0, 0, 0, .2);
+    height: 1px;
+    width: 100%;
+    bottom: -10px;;
+}
+
+.notifications-cross {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 12px;
+    cursor: pointer;
+}

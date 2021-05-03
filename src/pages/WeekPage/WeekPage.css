@@ -4,6 +4,7 @@
   flex-flow: wrap;
   margin: 0 auto;
   width: 900px;
+  z-index: 600;
 }
 
 .week-header {

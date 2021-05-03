@@ -1,0 +1,24 @@
+
+.button {
+    display: block;
+    width: 198px;
+    height: 60px;
+    margin-top: 20px;
+  
+    background: var(--extra-block-color);
+    font: normal 350 36px/48px Segoe UI, sans-serif;
+    text-align: center;
+  
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 3px 4px 8px rgba(204, 187, 164, 0.4);
+  
+    transition: all 500ms;
+    text-decoration: blink;
+  }
+  
+  .button:hover {
+    background: var(--hover-block-color);
+    transition: all 800ms;
+  }

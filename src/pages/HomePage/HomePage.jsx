@@ -1,6 +1,7 @@
 import './HomePage.css'
 import girl from '../../img/drawing-2194233-0 1.svg'
 import girlBg from '../../img/Vector.png'
+import { Button } from '../../components/UI/Button/Button'
 
 export const HomePage = () => {
   return (
@@ -14,7 +15,7 @@ export const HomePage = () => {
         </p>
       </div>
 
-      <button className={'button'} link={'/today'}>start</button>
+      <Button to={'/today'} text={'start'} />
 
       <div className={'home-page-img'}>
         <img alt={''} src={girl} className={"girl"}/>

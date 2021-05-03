@@ -32,6 +32,7 @@
   width: 80px;
 
   background: var(--main-block-color);
+  z-index: 800
 }
 
 .habits-date img {

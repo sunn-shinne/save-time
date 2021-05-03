@@ -16,27 +16,6 @@
   margin-bottom: 40px;
 }
 
-.button {
-  width: 198px;
-  height: 60px;
-  margin-top: 20px;
-
-  background: var(--extra-block-color);
-  font: normal 350 36px/48px Segoe UI, sans-serif;
-
-  outline: none;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 3px 4px 8px rgba(204, 187, 164, 0.4);
-
-  transition: all 500ms;
-}
-
-.button:hover {
-  background: var(--hover-block-color);
-  transition: all 800ms;
-}
-
 .home-page-img {
   position: absolute;
   right: 5%;

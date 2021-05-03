@@ -4,6 +4,7 @@ import { CalendarButton } from '../../components/UI/CalendarButton/CalendarButto
 import { useState } from 'react';
 import { dateToString, addDays } from '../../utils/dateConfig'
 import girl from '../../img/girl-checking-phone-during-free-time-1.svg'
+import { Arrows } from '../../components/UI/Arrows/Arrows'
 
 export const WeekPage = () => {
 
@@ -23,6 +24,22 @@ export const WeekPage = () => {
     })
   }
 
+  const setNaxtDate = () => {
+    const res = {
+        day: addDays(date.day, 7),
+        dayString: dateToString(addDays(date.day, 7))
+    }
+    setDate(res)
+  }   
+
+  const setPrevDate = () => {
+      const res = {
+          dayString: dateToString(addDays(date.day, -7)),
+          day: addDays(date.day, -7),
+      }
+      setDate(res)
+  }
+
   return (
     <>
       <div className={'week-header'}>
@@ -38,6 +55,8 @@ export const WeekPage = () => {
       </div>
 
       <img alt={''} src={girl} className={'week-img'}/>
+
+      <Arrows toTopSpace={'40%'} marginSpace={'0 130px'}  onLeftClick={setPrevDate} onRightClick={setNaxtDate} />
     </>
 
   )

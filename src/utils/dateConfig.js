@@ -1,8 +1,18 @@
 
-// Добавляет к дате переданное количество дней
+// добавляет к дате переданное количество дней
 const  addDays = (date, numDays) => {
     let res = new Date(date)
     res = res.setDate(date.getDate() + numDays)
+    res = new Date(Number(res))
+
+    return res
+}
+
+
+// добавляет к дате переданное количество месяцев
+const  addMonths = (date, numMonths) => {
+    let res = new Date(date)
+    res = res.setMonth(date.getMonth() + numMonths)
     res = new Date(Number(res))
 
     return res
@@ -45,4 +55,4 @@ const getMonthName = (date) => {
     return MonthName[date.getMonth()]
 }
 
-export {dateToString, dateToLongString, addDays, getDayName, getMonthName}
+export {dateToString, dateToLongString, addDays, getDayName, getMonthName, addMonths}
