@@ -1,14 +1,35 @@
 import './Day.css'
 import { Task } from '../../UI/Task/Task'
+import { EmptyWeekDay } from '../../UI/EmptyWeekDay/EmptyWeekDay'
+import zoom from '../../../img/icons8-search.svg'
+import { useState } from 'react'
 
-export const Day = (props) => {
+export const Day = ({tasks, dayName, date}) => {
+
+  const designTasks = (arr) => {
+
+    if (arr) {
+      return (
+        arr.map((task, i) => <Task size={'small'} text={task.text} subtasks={task.subtasks} comment={task.comment} time={task.time}/>)
+      )
+    }
+    return <EmptyWeekDay/>
+  }
+
+      const [isZoomed, setIsZoomed] = useState(false)
+
+    let cl = ['day']
+    if (isZoomed) {
+      cl.push('zoomed')
+    }
+
   return (
-    <div className={'day'}>
-      <div className={'day-title'}><span>{props.day}</span>,<span> {props.date}</span></div>
-      <Task size={'small'} text={'go to the store'} subtasks={['carrot', 'potato', 'toothpaste']}/>
-      <Task size={'small'} text={'call a colleague'} comment={'discuss the work plan on the project'} time={'13:00'}/>
-      <Task size={'small'} text={'send report'}/>
-      <Task size={'small'} text={'hair cutting in a barbershop'} time={'18:00'}/>
+    <div className={cl.join(' ')}>
+
+      <div className={'day-title'}><span>{dayName},</span><span>{date}</span></div>
+      {designTasks(tasks)}
+
+      {tasks && <img alt={''} src={zoom} className={'day-zoom-button'} onClick={() => setIsZoomed(true)}/>}
 
     </div>
   )

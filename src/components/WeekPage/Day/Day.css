@@ -5,6 +5,7 @@
   padding-bottom: 25px;
   background: white;
   border-radius: 10px;
+  width: 225px;
 
   margin-bottom: 20px;
   margin-right: 20px;
@@ -28,4 +29,18 @@
 .day:hover {
   transition: 500ms;
   box-shadow: 3px 4px 8px rgb(204 187 164 / 40%);
+}
+
+.day-zoom-button {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  height: 15px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 400ms ease-in;
+}
+
+.day:hover .day-zoom-button {
+  opacity: 1;
 }

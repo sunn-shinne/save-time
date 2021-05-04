@@ -1,5 +1,5 @@
 import { Progress } from '../../UI/Progress/Progress'
-import { getMonthName, addMonths, dateToString } from '../../../utils/dateConfig'
+import { getMonthName, addMonths } from '../../../utils/dateConfig'
 import './HabitsStat.css'
 import img from '../../../img/Vector5.png'
 import { useState } from 'react';

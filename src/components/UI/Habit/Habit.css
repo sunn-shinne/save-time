@@ -3,7 +3,7 @@
   font: normal 350 18px/24px Segoe UI, sans-serif;
   margin-top: 0.4em;
   cursor: default;
-  z-index: 100;
+  z-index: 700;
 }
 
 .habit input {

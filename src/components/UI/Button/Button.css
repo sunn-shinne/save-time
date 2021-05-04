@@ -22,3 +22,10 @@
     background: var(--hover-block-color);
     transition: all 800ms;
   }
+
+  .small-button {
+    padding-top: 5px;
+    font: normal 350 24px/32px Segoe UI, sans-serif;
+    width: 150px;
+    height: 45px;
+  }

@@ -4,15 +4,17 @@ import iconPlus from '../../../img/icons8-плюс.svg'
 import iconBell from '../../../img/icons8-напоминания-50.svg'
 import { ProfileModal } from '../ProfileModal/ProfileModal'
 import { Notifications } from '../Notifications/Notifications'
+import { AddTask } from '../AddTask/AddTask'
 
 export const NavBar = () => {
   const [isModalVisible, setModalVisible] = useState(false)
   const [isNotificationsVisible, setNotificationsVisible] = useState(false)
+  const [isAddTaskVisible, setAddTaskVisible] = useState(false)
 
   return (
     <div className={'nav-bar'}>
       <div className={'icons'}>
-        <img alt={''} src={iconPlus}/>
+        <img alt={''} src={iconPlus} onClick={() => setAddTaskVisible(!isAddTaskVisible)}/>
         <img alt={''} src={iconBell} onClick={() => setNotificationsVisible(!isNotificationsVisible)}/>
       </div>
 
@@ -22,6 +24,7 @@ export const NavBar = () => {
       
       <ProfileModal isVisible={isModalVisible} setIsVisible={setModalVisible}/>
       <Notifications isVisible={isNotificationsVisible} setIsVisible={setNotificationsVisible} />
+      <AddTask isVisible={isAddTaskVisible} setIsVisible={setAddTaskVisible}/>
     </div>
   )
 }

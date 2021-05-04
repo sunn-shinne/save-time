@@ -1,0 +1,36 @@
+.add-task {
+    position: absolute;
+    margin: auto;
+    width: 526px;
+    height: 500px;
+    padding: 15px 25px;
+
+    top: 2000%; 
+    left: 50%; 
+    margin-left: -450px;
+
+    opacity: 0;
+
+    background: var(--main-bg-color);
+    border-radius: 10px;
+    z-index: 1000;
+    transition: all 300ms  ease-out;
+}
+
+.add-task.visible {
+    top: 250%;
+    opacity: 1;
+    transition: all 300ms  ease-out;
+}
+
+.add-task-title {
+    width: 100%;
+    font: normal 350 18px/24px Segoe UI, sans-serif;
+}
+
+.button-block {
+    display: flex;
+    justify-content : center;
+    margin-top: 15px;
+}
+

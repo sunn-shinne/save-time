@@ -1,0 +1,31 @@
+.empty-week-day {
+    box-sizing: border-box;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+
+.empty-week-day-title {
+    position: absolute;
+    font: normal 350 16px/24px Segoe UI, sans-serif;
+    top: 20%;
+    left: 10%;
+}
+
+.img-chill-girl {
+    position: absolute;
+    bottom: -20px;
+    right: -50px;;
+    z-index: 100;
+}
+
+.empty-week-day-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 285px;
+    border-radius: 10px;
+    z-index: 10;
+}

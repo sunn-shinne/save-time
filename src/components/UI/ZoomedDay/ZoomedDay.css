@@ -1,0 +1,57 @@
+.day {
+    position: absolute;
+    box-sizing: border-box;
+    font: normal 350 24px/32px Segoe UI, sans-serif;
+    width: 500px;
+    padding: 15px 30px;
+    padding-bottom: 25px;
+    background: white;
+    border-radius: 10px;
+  
+    margin: 0;
+    top: 2000%; 
+    left: 50%; 
+    margin-left: -450px;
+  
+    transition: 500ms;
+    z-index: 1000;
+  }
+  
+  .day-title {
+    font: normal 350 18px/24px Segoe UI, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 0.5em;
+  }
+  
+  .zoomed-day-title span {
+    margin-right: 15px;
+  }
+  
+  .zoomed-day:hover {
+    transition: 500ms;
+    box-shadow: 3px 4px 8px rgb(204 187 164 / 40%);
+  }
+  
+  .zoomed-day-close-button {
+    position: absolute;
+    height: 15px;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+  
+  .zoomed-day-close-button:hover {
+    height: 17px;
+  }
+  
+  .zoomed-day.zoomed {
+    position: absolute;;
+    zoom: 1.5;
+    font: normal 350 24px/32px Segoe UI, sans-serif !important;
+    /* margin: 0; */
+    /* left: 50%; */
+    /* top: 50%; */
+    z-index: 100000;
+  }

@@ -11,11 +11,11 @@ export const Task = (props) => {
             </span>
             <span className={'task-time'}>{props.time}</span>
 
-            {(props.subtasks !== undefined)
+            {(props.subtasks.length > 0)
             ? <img alt={''} src={arrow} className={`task-arrow ${props.size}`}/>
             : null}
 
-            {(props.subtasks !== undefined)
+            {(props.subtasks.length > 0)
             ? props.subtasks.map(item => <Subtask text={item}  size={props.size}/>)
             : null}
 
