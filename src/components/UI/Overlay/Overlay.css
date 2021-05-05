@@ -6,7 +6,7 @@
     right: -200vh;
     top: -300vh;
     z-index: 999;
-    background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, .5);
     opacity: 0;
     mouse-event: none;
     transition: all 400ms  ease-out;

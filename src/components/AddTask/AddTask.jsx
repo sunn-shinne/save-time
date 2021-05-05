@@ -5,10 +5,12 @@ import { Button } from "../UI/Button/Button";
 import TextField from "@material-ui/core/TextField";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormLabel from "@material-ui/core/FormLabel";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Radio from "@material-ui/core/Radio";
 import DateFnsUtils from "@date-io/date-fns";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import close from "../../img/крестик.svg";
+
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
@@ -27,9 +29,11 @@ const theme = createMuiTheme({
 export const AddTask = ({ isVisible, setIsVisible }) => {
   const [selectedText, setSelectedText] = useState(null);
   const [selectedComment, setSelectedComment] = useState(null);
-  const [selectedRadio, setSelectedRadio] = useState("task");
+  const [selectedType, setSelectedType] = useState("task");
   const [selectedTime, setSelectedTime] = useState(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [subtasks, setSubtasks] = useState([]);
+  const [copyOfSubTasks, setCopy] = useState(null);
 
   const textChange = (event) => {
     setSelectedText(event.target.value);
@@ -37,8 +41,16 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
   const commentChange = (event) => {
     setSelectedComment(event.target.value);
   };
-  const radioChange = (event) => {
-    setSelectedRadio(event.target.value);
+  const typeChange = (event) => {
+    if (event.target.value === "habit") {
+      setCopy(subtasks);
+      setSubtasks([]);
+    } else {
+      setSubtasks(copyOfSubTasks);
+      setCopy(null);
+    }
+
+    setSelectedType(event.target.value);
   };
   const timeChange = (date) => {
     setSelectedTime(date);
@@ -52,17 +64,80 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
     blockClasses.push("visible");
   }
 
+  const renderSubtasks = () =>
+    subtasks.map((sub, i) => (
+      <Grid item xs={4}>
+        <TextField
+          color="primary"
+          label={`sub ${i + 1}`}
+          value={subtasks[i]}
+          onChange={(e) => {
+            const copy = subtasks.concat();
+            copy[i] = e.target.value;
+            setSubtasks(copy);
+          }}
+          defaultValue=""
+          variant="outlined"
+          margin="dense"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <img
+                  alt={""}
+                  src={close}
+                  onClick={() => {
+                    const copy = [
+                      ...subtasks.concat().slice(0, i),
+                      ...subtasks.concat().slice(i + 1),
+                    ];
+                    setSubtasks(copy);
+                  }}
+                  className={"close-sub"}
+                />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Grid>
+    ));
+
   return (
     <>
       <Overlay onClose={() => setIsVisible(false)} isVisible={isVisible} />
       <div className={blockClasses.join(" ")}>
+        <img
+          alt={""}
+          src={close}
+          className={"change-task-close"}
+          onClick={() => setIsVisible(false)}
+        />
         <h2 className={"add-task-title"}>Creating</h2>
 
         <form noValidate autoComplete="off" className={"add-task-form"}>
           <ThemeProvider theme={theme}>
             <Grid container spacing={2} alignContent={"space-around"}>
               <Grid item xs={12}>
+                <RadioGroup
+                  name="type"
+                  value={selectedType}
+                  onChange={typeChange}
+                  row
+                >
+                  <FormControlLabel
+                    value="task"
+                    control={<Radio color="primary" size="small" />}
+                    label="task"
+                  />
+                  <FormControlLabel
+                    value="habit"
+                    control={<Radio color="primary" size="small" />}
+                    label="habit"
+                  />
+                </RadioGroup>
+              </Grid>
+              <Grid item xs={12}>
                 <TextField
+                  required
                   color="primary"
                   fullWidth
                   id="task-text"
@@ -74,40 +149,22 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
                 />
               </Grid>
 
-              <Grid item xs={12}>
-                <RadioGroup>
-                  <FormLabel component="legend">Type</FormLabel>
-                  <FormControlLabel
-                    value="best"
-                    control={
-                      <Radio
-                        checked={selectedRadio === "task"}
-                        onChange={radioChange}
-                        value="task"
-                        color="primary"
-                        name="task"
-                        size="small"
-                      />
-                    }
-                    label="task"
-                  />
+              <div classNmae={"add-sub-block"} style={{ width: "100%" }}>
+                <input
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const copy = subtasks.concat();
+                    copy.push("");
+                    setSubtasks(copy);
+                  }}
+                  className={"add-sub"}
+                  value={"add subtask"}
+                  type={"button"}
+                  disabled={selectedType === "habit"}
+                />
+              </div>
 
-                  <FormControlLabel
-                    value="worst"
-                    control={
-                      <Radio
-                        checked={selectedRadio === "habit"}
-                        onChange={radioChange}
-                        value="habit"
-                        color="primary"
-                        name="habit"
-                        size="small"
-                      />
-                    }
-                    label="habit"
-                  />
-                </RadioGroup>
-              </Grid>
+              {renderSubtasks()}
 
               <Grid item xs={12}>
                 <TextField
@@ -122,7 +179,7 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
                   defaultValue=""
                   variant="outlined"
                   margin="dense"
-                  disabled={selectedRadio === "habit"}
+                  disabled={selectedType === "habit"}
                 />
               </Grid>
 
@@ -139,7 +196,7 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
                       KeyboardButtonProps={{
                         "aria-label": "select date",
                       }}
-                      disabled={selectedRadio === "habit"}
+                      disabled={selectedType === "habit"}
                     />
                     <KeyboardTimePicker
                       margin="dense"
@@ -150,7 +207,7 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
                       KeyboardButtonProps={{
                         "aria-label": "select time",
                       }}
-                      disabled={selectedRadio === "habit"}
+                      disabled={selectedType === "habit"}
                     />
                   </Grid>
                 </MuiPickersUtilsProvider>

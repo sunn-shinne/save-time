@@ -5,7 +5,6 @@ import { ChangeTaskModal } from "../../ChangeTaskModal/ChangeTaskModal";
 import { timeToString } from "../../../utils/dateConfig.js";
 
 export const Task = (props) => {
-  console.log(props);
   return (
     <div className={`task ${props.size}`}>
       <input type={"checkbox"} className={"checkbox"} />

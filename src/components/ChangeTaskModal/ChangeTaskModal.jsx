@@ -14,6 +14,9 @@ import {
 } from "@material-ui/pickers";
 import { Grid } from "@material-ui/core";
 import cross from "../../img/крестик.svg";
+// import DateFnsUtils from "@date-io/date-fns";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import close from "../../img/крестик.svg";
 
 const theme = createMuiTheme({
   palette: {
@@ -61,6 +64,7 @@ export const ChangeTaskModal = ({ task }) => {
   const [selectedComment, setSelectedComment] = useState(task.comment);
   const [selectedTime, setSelectedTime] = useState(task.time);
   const [selectedDate, setSelectedDate] = useState(task.date.initDate);
+  const [subtasks, setSubtasks] = useState(task.subtasks);
 
   const textChange = (event) => {
     setSelectedText(event.target.value);
@@ -74,6 +78,43 @@ export const ChangeTaskModal = ({ task }) => {
   const dateChange = (date) => {
     setSelectedDate(date);
   };
+
+  const renderSubtasks = () =>
+    subtasks.map((sub, i) => (
+      <Grid item xs={4}>
+        <TextField
+          color="primary"
+          label={`sub ${i + 1}`}
+          value={subtasks[i]}
+          onChange={(e) => {
+            const copy = subtasks.concat();
+            copy[i] = e.target.value;
+            setSubtasks(copy);
+          }}
+          defaultValue=""
+          variant="outlined"
+          margin="dense"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <img
+                  alt={""}
+                  src={close}
+                  onClick={() => {
+                    const copy = [
+                      ...subtasks.concat().slice(0, i),
+                      ...subtasks.concat().slice(i + 1),
+                    ];
+                    setSubtasks(copy);
+                  }}
+                  className={"close-sub"}
+                />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Grid>
+    ));
 
   return (
     <div>
@@ -103,6 +144,22 @@ export const ChangeTaskModal = ({ task }) => {
                     onChange={textChange}
                   />
                 </Grid>
+
+                <div classNmae={"add-sub-block"} style={{ width: "100%" }}>
+                  <input
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const copy = subtasks.concat();
+                      copy.push("");
+                      setSubtasks(copy);
+                    }}
+                    className={"add-sub"}
+                    value={"add subtask"}
+                    type={"button"}
+                  />
+                </div>
+
+                {renderSubtasks()}
 
                 <Grid item xs={12}>
                   <TextField

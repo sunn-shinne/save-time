@@ -24,6 +24,7 @@
 
   .thin {
     padding-top: 5px;
+    padding-bottom: 15px;
     font: normal 350 24px/32px Segoe UI, sans-serif;
     width: 350px;
     height: 45px;

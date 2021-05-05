@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export const Button = ({ text, to, type, size, onClick, color }) => {
   const cl = ["button", color, size];
-  console.log(size, color);
   let content = (
     <Link className={cl.join(" ")} to={to}>
       {text}
