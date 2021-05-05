@@ -1,0 +1,37 @@
+.edit-button {
+    position: absolute;
+    right: -18px;
+    top: 4px;;
+    cursor: pointer;
+    height: 16px;
+    opacity: 0;
+    transition: all 200ms ease-in; 
+}
+
+.task.small .edit-button{
+    height: 12px;
+    right: -15px;
+}
+
+.task:hover .edit-button {
+    opacity: 0.7;
+}
+
+.change-task.visible {
+    top: 250%;
+    opacity: 1;
+    transition: all 300ms  ease-out;
+}
+
+.change-task-title {
+    width: 100%;
+    font: normal 350 18px/24px Segoe UI, sans-serif;
+}
+
+.change-task-close {
+    position: absolute;
+    top: 35px;
+    right: 30px;
+    width: 12px;
+    cursor: pointer;
+}

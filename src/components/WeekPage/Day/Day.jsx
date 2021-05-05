@@ -1,36 +1,31 @@
-import './Day.css'
-import { Task } from '../../UI/Task/Task'
-import { EmptyWeekDay } from '../../UI/EmptyWeekDay/EmptyWeekDay'
-import zoom from '../../../img/icons8-search.svg'
-import { useState } from 'react'
+import "./Day.css";
+import { Task } from "../../UI/Task/Task";
+import { EmptyWeekDay } from "../../UI/EmptyWeekDay/EmptyWeekDay";
 
-export const Day = ({tasks, dayName, date}) => {
-
+export const Day = ({ tasks, date }) => {
   const designTasks = (arr) => {
-
     if (arr) {
-      return (
-        arr.map((task, i) => <Task size={'small'} text={task.text} subtasks={task.subtasks} comment={task.comment} time={task.time}/>)
-      )
+      return arr.map((task, i) => (
+        <Task
+          size={"small"}
+          text={task.text}
+          subtasks={task.subtasks}
+          comment={task.comment}
+          time={task.time}
+          date={date} // здесь должно быть task.date, но пока что оно всегда равно null, поэтому использую временный date
+        />
+      ));
     }
-    return <EmptyWeekDay/>
-  }
-
-      const [isZoomed, setIsZoomed] = useState(false)
-
-    let cl = ['day']
-    if (isZoomed) {
-      cl.push('zoomed')
-    }
+    return <EmptyWeekDay />;
+  };
 
   return (
-    <div className={cl.join(' ')}>
-
-      <div className={'day-title'}><span>{dayName},</span><span>{date}</span></div>
+    <div className={"day"}>
+      <div className={"day-title"}>
+        <span>{date.dayName},</span>
+        <span>{date.stringDate}</span>
+      </div>
       {designTasks(tasks)}
-
-      {tasks && <img alt={''} src={zoom} className={'day-zoom-button'} onClick={() => setIsZoomed(true)}/>}
-
     </div>
-  )
-}
+  );
+};

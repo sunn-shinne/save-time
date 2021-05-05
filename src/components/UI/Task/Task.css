@@ -12,7 +12,8 @@
 
 .task-time {
   position: absolute;
-  right: 5%;
+  right: 2%;
+  top: 2px;
 }
 
 .task-comment {
@@ -52,6 +53,8 @@
   font: normal 350 12px/16px Segoe UI, sans-serif;
 }
 
-.task-arrow.small {
+.task.small .task-arrow{
   top: 2em;
 }
+
+

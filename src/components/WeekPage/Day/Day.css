@@ -10,8 +10,8 @@
   margin-bottom: 20px;
   margin-right: 20px;
 
-  transition: 500ms;
-  z-index: 10;
+  transition: all 500ms ease-in;
+  z-index: 1;
 }
 
 .day-title {
@@ -22,13 +22,18 @@
   margin-bottom: 0.5em;
 }
 
+.day-title span {
+  margin-right: 0.5em;
+}
+
 .day:nth-child(3n) {
   margin-right: 0;
 }
 
 .day:hover {
-  transition: 500ms;
   box-shadow: 3px 4px 8px rgb(204 187 164 / 40%);
+  transform: scale(1.04);
+  transition: all 400ms ease-out;
 }
 
 .day-zoom-button {

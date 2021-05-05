@@ -1,8 +1,14 @@
+.react-calendar {
+    border-radius: 10px;
+    
+}
+
 .calendar {
     z-index: 1000;
     position: absolute;
     top: 90%;
-    left: 50%
+    left: 50%;
+
 }
 
 .dark-bg {
@@ -13,6 +19,19 @@
     width: 1000vw;
     height: 400vh;
     background: rgba(0, 0, 0, .1);
+}
+
+button:nth-child(6),
+button:nth-child(7),
+button:nth-child(13),
+button:nth-child(14),
+button:nth-child(20),
+button:nth-child(21),
+button:nth-child(27),
+button:nth-child(28),
+button:nth-child(34),
+button:nth-child(35) {
+    color: var(--extra-block-color)
 }
 
 

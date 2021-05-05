@@ -43,6 +43,27 @@ const dateToLongString = (date) => {
     return `${dateToString(date)}.${year}`
 }
 
+// возвращает время в удобном для вывода формате
+const timeToString = (date) => {
+
+    if (!date) {
+        return ''
+    }
+
+    let hours = date.getHours()
+    let minutes = date.getMinutes();
+
+    if (hours.toString().length === 1) {
+        hours = `0${hours}`
+    }
+
+    if (minutes.toString().length === 1) {
+        minutes = `0${minutes}`
+    }
+    
+    return `${hours}:${minutes}`
+}
+
 // возвращает название дня переданной даты
 const getDayName = (date) => {
     const daysName =["sunday", "monday", "tuesday", "wednesd", "thursday", "friday", "saturday"]
@@ -55,4 +76,4 @@ const getMonthName = (date) => {
     return MonthName[date.getMonth()]
 }
 
-export {dateToString, dateToLongString, addDays, getDayName, getMonthName, addMonths}
+export {dateToString, dateToLongString, addDays, getDayName, getMonthName, addMonths, timeToString}

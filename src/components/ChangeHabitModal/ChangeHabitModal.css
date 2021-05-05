@@ -1,0 +1,33 @@
+.habit-edit-button {
+    position: absolute;
+    right: 35%;
+    top: 4px;;
+    cursor: pointer;
+    height: 16px;
+    opacity: 0;
+    transition: all 200ms ease-in; 
+}
+
+
+.habit:hover .habit-edit-button {
+    opacity: 0.7;
+}
+
+.change-habit.visible {
+    top: 250%;
+    opacity: 1;
+    transition: all 300ms  ease-out;
+}
+
+.change-habit-title {
+    width: 100%;
+    font: normal 350 18px/24px Segoe UI, sans-serif;
+}
+
+.change-habit-close {
+    position: absolute;
+    top: 35px;
+    right: 30px;
+    width: 12px;
+    cursor: pointer;
+}
