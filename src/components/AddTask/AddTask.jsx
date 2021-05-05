@@ -159,7 +159,13 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
           </ThemeProvider>
 
           <div className={"button-block"}>
-            <Button text={"create"} small={true} type={"submit"} />
+            <Button
+              text={"creat"}
+              type={"submit"}
+              size={"thin"}
+              color={"primary"}
+              onClick={() => {}}
+            />
           </div>
         </form>
       </div>

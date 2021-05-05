@@ -1,18 +1,24 @@
-import './Button.css' 
-import {
-    Link,
-  } from 'react-router-dom';
+import "./Button.css";
+import { Link } from "react-router-dom";
 
-export const Button = ({text, to, submit, small, onClick}) => {
-  const cl = ['button']
-  if (small) {
-    cl.push('small-button')
+export const Button = ({ text, to, type, size, onClick, color }) => {
+  const cl = ["button", color, size];
+  console.log(size, color);
+  let content = (
+    <Link className={cl.join(" ")} to={to}>
+      {text}
+    </Link>
+  );
+
+  if (type === "submit") {
+    content = (
+      <input
+        className={cl.join(" ")}
+        type="submit"
+        value={text}
+        onClick={() => onClick()}
+      />
+    );
   }
-
-  let content = <Link className={cl.join(' ')} to={to}>{text}</Link>
-
-  if (submit) {
-    content = <input className={cl.join(' ')} type="submit" onClick={() => onClick()}>{text}</input>
-  }
-    return (content)
-}
+  return content;
+};

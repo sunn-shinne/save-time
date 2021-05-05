@@ -1,0 +1,30 @@
+.register-container {
+    font: normal 300 36px/48px Segoe UI, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main-block-color)
+}
+
+.register {
+    width: 557px;
+    height: 561px;
+    border-radius: 10px;
+    background-color: var(--main-bg-color);
+    padding: 15px 25px 45px;
+}
+
+.register-title-block {
+    display: flex;
+    justify-content: center;
+}
+  
+.register-title {
+    letter-spacing: -0.12em;
+}
+
+.register-register {
+    margin-bottom: 25px;
+}

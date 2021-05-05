@@ -94,7 +94,13 @@ export const ChangeHabitModal = ({ habitText }) => {
             </ThemeProvider>
 
             <div className={"button-block"}>
-              <Button text={"save"} small={true} type={"submit"} />
+              <Button
+                text={"save"}
+                type={"submit"}
+                size={"thin"}
+                color={"primary"}
+                onClick={() => {}}
+              />
             </div>
           </form>
         </div>
