@@ -18,7 +18,8 @@ body {
 
   background: var(--main-bg-color);
   color: var(--primary-text-color);
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 code {
