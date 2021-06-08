@@ -6,6 +6,7 @@ import { addDays, dateToString } from '../../../utils/dateConfig'
 import { Arrows } from '../../UI/Arrows/Arrows';
 
 
+
 export const Habits = ({habits}) => {
 
     const day = new Date()
@@ -28,6 +29,7 @@ export const Habits = ({habits}) => {
         setDate(res)
     }
 
+    console.log('new')
     return (
         <div className={'habits'}>
             <div className={'habits-date'} >
@@ -35,7 +37,10 @@ export const Habits = ({habits}) => {
                 <CalendarButton setDate={setDate} value={date}/>
             </div>
             <div className={'habits-list'} >
-                {habits.map((habit, index) => <Habit text={habit.text} key={index}/>)}
+                {habits.map((habit, index) => <Habit habitText={habit.text} habitId={habit.id}
+                                                     habitStat={habit.stat} habitDate={habit.date}
+                                                     dayString={date.dayString}
+                                                     key={index}/>)}
             </div>
 
             <Arrows onLeftClick={setPrevDate} onRightClick={setNaxtDate} toTopSpace={'0 20px'} marginSpace={60}/>

@@ -5,11 +5,15 @@ import iconBell from "../../img/icons8-напоминания-50.svg";
 import { ProfileModal } from "../UI/ProfileModal/ProfileModal";
 import { Notifications } from "../UI/Notifications/Notifications";
 import { AddTask } from "../AddTask/AddTask";
+import {useSelector} from "react-redux";
 
 export const NavBar = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isNotificationsVisible, setNotificationsVisible] = useState(false);
   const [isAddTaskVisible, setAddTaskVisible] = useState(false);
+
+  const auth = useSelector((store) => store.auth);
+  const {profile} = auth;
 
   return (
     <div className={"nav-bar"}>
@@ -30,7 +34,7 @@ export const NavBar = () => {
         className={"avatar"}
         onClick={() => setModalVisible(!isModalVisible)}
       >
-        <span>D</span> {/* первая буква имени */}
+        <span>{profile.username.substring(0, 1).toUpperCase()}</span> {/* первая буква имени */}
       </div>
 
       <ProfileModal isVisible={isModalVisible} setIsVisible={setModalVisible} />

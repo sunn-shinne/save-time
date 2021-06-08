@@ -1,13 +1,16 @@
 import "./ChangeHabitModal.css";
 import Modal from "@material-ui/core/Modal";
-import { makeStyles } from "@material-ui/core/styles";
-import { useState } from "react";
+import {makeStyles} from "@material-ui/core/styles";
+import {useCallback, useState} from "react";
 import edit from "../../img/icons8-edit.svg";
-import { Button } from "../UI/Button/Button";
+import {Button} from "../UI/Button/Button";
 import TextField from "@material-ui/core/TextField";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
+import {Grid} from "@material-ui/core";
 import cross from "../../img/крестик.svg";
+import {dateToString, timeToString} from "../../utils/dateConfig";
+import {deleteHabits, deleteTasks, updateHabits, updateTasks} from "../../store/actions/task";
+import {useDispatch, useSelector} from "react-redux";
 
 const theme = createMuiTheme({
   palette: {
@@ -37,9 +40,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const ChangeHabitModal = ({ habitText }) => {
+export const ChangeHabitModal = ({habitText, habitId, habitStat}) => {
+  const auth = useSelector((store) => store.auth);
+  const {profile} = auth;
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
+
+  const dispatch = useDispatch();
+  const stableDispatch = useCallback(dispatch, []);
 
   const [isOpen, setOpen] = useState(false);
 
@@ -56,6 +64,24 @@ export const ChangeHabitModal = ({ habitText }) => {
   const textChange = (event) => {
     setSelectedText(event.target.value);
   };
+
+  const changeData = (e) => {
+    e.preventDefault()
+    const data = {}
+    data[habitId] = {
+      text: selectedText,
+      stat: habitStat,
+      user: profile.username
+    }
+    stableDispatch(updateHabits(data))
+    // alert('Привычка обновлена')
+  }
+
+  const deleteData = (e) => {
+    e.preventDefault()
+    stableDispatch(deleteHabits(habitId))
+    // alert('Привычка удалена')
+  }
 
   return (
     <div>
@@ -99,7 +125,14 @@ export const ChangeHabitModal = ({ habitText }) => {
                 type={"submit"}
                 size={"thin"}
                 color={"primary"}
-                onClick={() => {}}
+                onClick={changeData}
+              />
+              <Button
+                text={"delete"}
+                type={"submit"}
+                size={"thin"}
+                color={"danger"}
+                onClick={deleteData}
               />
             </div>
           </form>

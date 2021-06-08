@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useCallback, useEffect, useState} from "react";
 import { Overlay } from "../UI/Overlay/Overlay";
 import "./AddTask.css";
 import { Button } from "../UI/Button/Button";
@@ -10,6 +10,7 @@ import Radio from "@material-ui/core/Radio";
 import DateFnsUtils from "@date-io/date-fns";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import close from "../../img/крестик.svg";
+import axios from "axios";
 
 import {
   MuiPickersUtilsProvider,
@@ -17,6 +18,9 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 import { Grid } from "@material-ui/core";
+import {setHabits, setTasks} from "../../store/actions/task";
+import {useDispatch, useSelector} from "react-redux";
+import {dateToString, timeToString} from "../../utils/dateConfig";
 
 const theme = createMuiTheme({
   palette: {
@@ -34,6 +38,14 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [subtasks, setSubtasks] = useState([]);
   const [copyOfSubTasks, setCopy] = useState(null);
+
+
+
+  const dispatch = useDispatch();
+  const stableDispatch = useCallback(dispatch, []);
+
+  const auth_state = useSelector((store) => store.auth);
+  const {profile} = auth_state;
 
   const textChange = (event) => {
     setSelectedText(event.target.value);
@@ -101,6 +113,48 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
       </Grid>
     ));
 
+  const initState = () => {
+    setSelectedText(null);
+    setSelectedComment(null);
+    setSelectedType("task");
+    setSelectedTime(null);
+    setSelectedDate(new Date());
+    setSubtasks([]);
+    setCopy(null);
+  }
+
+
+
+  const loadData = (e) => {
+    if (selectedType === 'task') {
+      const time = timeToString(selectedTime)
+      const date = dateToString(selectedDate)
+      e.preventDefault()
+      const data = {
+        text: selectedText,
+        subtasks: subtasks,
+        comment: selectedComment,
+        time: time,
+        date: date,
+        user: profile.username
+      }
+      stableDispatch(setTasks(data))
+      // initState()
+      // setIsVisible(false)
+      // window.location.reload()
+    } else {
+      e.preventDefault()
+      const data = {
+        text: selectedText,
+        stat: 0,
+        user: profile.username
+      }
+      stableDispatch(setHabits(data))
+      setIsVisible(false)
+      initState()
+    }
+  }
+
   return (
     <>
       <Overlay onClose={() => setIsVisible(false)} isVisible={isVisible} />
@@ -149,7 +203,7 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
                 />
               </Grid>
 
-              <div classNmae={"add-sub-block"} style={{ width: "100%" }}>
+              <div className={"add-sub-block"} style={{ width: "100%" }}>
                 <input
                   onClick={(e) => {
                     e.preventDefault();
@@ -217,11 +271,11 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
 
           <div className={"button-block"}>
             <Button
-              text={"creat"}
+              text={"create"}
               type={"submit"}
               size={"thin"}
               color={"primary"}
-              onClick={() => {}}
+              onClick={loadData}
             />
           </div>
         </form>

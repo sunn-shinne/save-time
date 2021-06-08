@@ -1,22 +1,25 @@
 import "./ChangeTaskModal.css";
 import Modal from "@material-ui/core/Modal";
-import { makeStyles } from "@material-ui/core/styles";
-import { useState } from "react";
+import {makeStyles} from "@material-ui/core/styles";
+import {useCallback, useState} from "react";
 import edit from "../../img/icons8-edit.svg";
-import { Button } from "../UI/Button/Button";
+import {Button} from "../UI/Button/Button";
 import TextField from "@material-ui/core/TextField";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
-import { Grid } from "@material-ui/core";
+import {Grid} from "@material-ui/core";
 import cross from "../../img/крестик.svg";
 // import DateFnsUtils from "@date-io/date-fns";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import close from "../../img/крестик.svg";
+import {dateToString, timeToString} from "../../utils/dateConfig";
+import {deleteTasks, setTasks, updateTasks} from "../../store/actions/task";
+import {useDispatch, useSelector} from "react-redux";
 
 const theme = createMuiTheme({
   palette: {
@@ -46,7 +49,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const ChangeTaskModal = ({ task }) => {
+export const ChangeTaskModal = ({task}) => {
+  const auth = useSelector((store) => store.auth);
+  const {profile} = auth;
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
 
@@ -65,6 +70,9 @@ export const ChangeTaskModal = ({ task }) => {
   const [selectedTime, setSelectedTime] = useState(task.time);
   const [selectedDate, setSelectedDate] = useState(task.date.initDate);
   const [subtasks, setSubtasks] = useState(task.subtasks);
+
+  const dispatch = useDispatch();
+  const stableDispatch = useCallback(dispatch, []);
 
   const textChange = (event) => {
     setSelectedText(event.target.value);
@@ -116,9 +124,38 @@ export const ChangeTaskModal = ({ task }) => {
       </Grid>
     ));
 
+  const changeData = (e) => {
+    const time = timeToString(selectedTime)
+    let date
+    if (selectedDate === undefined) {
+      date = dateToString(new Date())
+    } else {
+      date = dateToString(selectedDate)
+    }
+
+    e.preventDefault()
+    const data = {}
+    data[task.id] = {
+      text: selectedText,
+      subtasks: subtasks,
+      comment: selectedComment,
+      time: time,
+      date: date,
+      user: profile.username
+    }
+
+    stableDispatch(updateTasks(data))
+
+  }
+
+  const deleteData = (e) => {
+    e.preventDefault()
+    stableDispatch(deleteTasks(task.id))
+  }
+
   return (
     <div>
-      <img alt="" src={edit} className={"edit-button"} onClick={handleOpen} />
+      <img alt="" src={edit} className={"edit-button"} onClick={handleOpen}/>
       <Modal open={isOpen} onClose={handleClose} aria-labelledby="change-task">
         <div style={modalStyle} className={classes["change-task-modal"]}>
           <img
@@ -145,7 +182,7 @@ export const ChangeTaskModal = ({ task }) => {
                   />
                 </Grid>
 
-                <div classNmae={"add-sub-block"} style={{ width: "100%" }}>
+                <div className={"add-sub-block"} style={{width: "100%"}}>
                   <input
                     onClick={(e) => {
                       e.preventDefault();
@@ -213,7 +250,14 @@ export const ChangeTaskModal = ({ task }) => {
                 type={"submit"}
                 size={"thin"}
                 color={"primary"}
-                onClick={() => {}}
+                onClick={changeData}
+              />
+              <Button
+                text={"delete"}
+                type={"submit"}
+                size={"thin"}
+                color={"danger"}
+                onClick={deleteData}
               />
             </div>
           </form>

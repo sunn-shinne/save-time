@@ -12,7 +12,7 @@ export const Task = (props) => {
         {/* Вот в этой строке необходимо добавить стиль done, что бы перечеркнуть выполненную задачу*/}
         {props.text}
       </span>
-      <span className={"task-time"}>{timeToString(props.time)}</span>
+      <span className={"task-time"}>{props.time}</span>
       <ChangeTaskModal task={props} />
 
       {props.subtasks.length > 0 ? (

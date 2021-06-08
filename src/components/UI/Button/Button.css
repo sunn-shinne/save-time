@@ -34,6 +34,10 @@
     background: var(--extra-block-color);
   }
 
+  .danger {
+      background: #e72e2e;
+  }
+
   .secondary {
     background: #EADED3;
   }

@@ -5,6 +5,7 @@ import cross from '../../../img/крестик.svg'
 
 export const Notifications = ({isVisible, setIsVisible}) => {
 
+
     const example = [
         {text: 'don\'t forget to drink a glass of water to stay hydrated!'},
         {text: 'you have to call a colleague at 13:00'},

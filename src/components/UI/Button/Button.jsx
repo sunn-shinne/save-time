@@ -15,7 +15,7 @@ export const Button = ({ text, to, type, size, onClick, color }) => {
         className={cl.join(" ")}
         type="submit"
         value={text}
-        onClick={() => onClick()}
+        onClick={onClick}
       />
     );
   }
