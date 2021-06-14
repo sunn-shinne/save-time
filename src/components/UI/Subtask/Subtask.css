@@ -10,3 +10,9 @@
 .small {
   font: normal 350 12px/16px Segoe UI, sans-serif;
 }
+
+.done {
+  text-decoration: line-through;
+  text-decoration-color: var(--secondary-text-color);
+  color: rgba(0, 0, 0, 0.5);
+}

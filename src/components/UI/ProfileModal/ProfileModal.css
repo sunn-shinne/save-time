@@ -44,6 +44,7 @@
 .modal-exit {
     font: normal 350 18px/24px Segoe UI, sans-serif;
     margin-top: 25px;
+    cursor: pointer;
 }
 
 .modal-exit img {

@@ -14,6 +14,7 @@ export const Day = ({ tasks, date }) => {
           time={task.time}
           date={date} // здесь должно быть task.date, но пока что оно всегда равно null, поэтому использую временный date
           id={task.id}
+          isDone={task.isDone}
         />
       ));
     }

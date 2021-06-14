@@ -1,11 +1,11 @@
-import {useCallback, useState} from "react";
+import { useCallback, useState } from "react";
 import "./AuthPage.css";
 import { Button } from "../../components/UI/Button/Button";
 import TextField from "@material-ui/core/TextField";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
-import {Auth} from "../../store/actions/task";
-import {useDispatch} from "react-redux";
+import { Auth } from "../../store/actions/task";
+import { useDispatch } from "react-redux";
 
 const theme = createMuiTheme({
   palette: {
@@ -20,20 +20,20 @@ export const AuthPage = () => {
   const [password, setPassword] = useState(null);
 
   const dispatch = useDispatch();
-  const stableDispatch = useCallback(dispatch, [])
+  const stableDispatch = useCallback(dispatch, []);
 
   const onChangeEmail = (event) => setEmail(event.target.value);
   const onChangePassword = (event) => setPassword(event.target.value);
 
   const login = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const data = {
       email,
       password,
-      returnSecureToken: true
-    }
-    stableDispatch(Auth(data))
-  }
+      returnSecureToken: true,
+    };
+    stableDispatch(Auth(data));
+  };
 
   return (
     <div className={"auth-container"}>
@@ -70,7 +70,7 @@ export const AuthPage = () => {
                   margin="normal"
                   value={password}
                   onChange={onChangePassword}
-                  type={password}
+                  type="password"
                 />
               </Grid>
             </Grid>
@@ -96,8 +96,9 @@ export const AuthPage = () => {
             text={"sign up"}
             size={"thin"}
             color={"secondary"}
-            type={"submit"}
-            onClick={() => {}}
+            to={"/register"}
+            // type={"submit"}
+            // onClick={() => {}}
           />
         </div>
       </div>

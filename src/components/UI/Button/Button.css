@@ -25,8 +25,9 @@
   .thin {
     padding-top: 5px;
     padding-bottom: 15px;
+    margin-right: 20px;
     font: normal 350 24px/32px Segoe UI, sans-serif;
-    width: 350px;
+    width: 300px;
     height: 45px;
   }
 
@@ -35,9 +36,10 @@
   }
 
   .danger {
-      background: #e72e2e;
+      /* background: #e72e2e; */
   }
 
   .secondary {
     background: #EADED3;
+    padding: 2px;;
   }

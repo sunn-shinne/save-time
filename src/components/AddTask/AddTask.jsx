@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Overlay } from "../UI/Overlay/Overlay";
 import "./AddTask.css";
 import { Button } from "../UI/Button/Button";
@@ -18,9 +18,9 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 import { Grid } from "@material-ui/core";
-import {setHabits, setTasks} from "../../store/actions/task";
-import {useDispatch, useSelector} from "react-redux";
-import {dateToString, timeToString} from "../../utils/dateConfig";
+import { setHabits, setTasks } from "../../store/actions/task";
+import { useDispatch, useSelector } from "react-redux";
+import { dateToString, timeToString } from "../../utils/dateConfig";
 
 const theme = createMuiTheme({
   palette: {
@@ -39,13 +39,11 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
   const [subtasks, setSubtasks] = useState([]);
   const [copyOfSubTasks, setCopy] = useState(null);
 
-
-
   const dispatch = useDispatch();
   const stableDispatch = useCallback(dispatch, []);
 
   const auth_state = useSelector((store) => store.auth);
-  const {profile} = auth_state;
+  const { profile } = auth_state;
 
   const textChange = (event) => {
     setSelectedText(event.target.value);
@@ -82,10 +80,10 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
         <TextField
           color="primary"
           label={`sub ${i + 1}`}
-          value={subtasks[i]}
+          value={subtasks[i].text}
           onChange={(e) => {
             const copy = subtasks.concat();
-            copy[i] = e.target.value;
+            copy[i] = { text: e.target.value, isDone: false };
             setSubtasks(copy);
           }}
           defaultValue=""
@@ -121,39 +119,35 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
     setSelectedDate(new Date());
     setSubtasks([]);
     setCopy(null);
-  }
-
-
+  };
 
   const loadData = (e) => {
-    if (selectedType === 'task') {
-      const time = timeToString(selectedTime)
-      const date = dateToString(selectedDate)
-      e.preventDefault()
+    if (selectedType === "task") {
+      const time = timeToString(selectedTime);
+      const date = dateToString(selectedDate);
+      e.preventDefault();
       const data = {
         text: selectedText,
         subtasks: subtasks,
         comment: selectedComment,
         time: time,
         date: date,
-        user: profile.username
-      }
-      stableDispatch(setTasks(data))
-      // initState()
-      // setIsVisible(false)
-      // window.location.reload()
+        user: profile.username,
+      };
+      stableDispatch(setTasks(data));
+      setIsVisible(false);
     } else {
-      e.preventDefault()
+      e.preventDefault();
       const data = {
         text: selectedText,
         stat: 0,
-        user: profile.username
-      }
-      stableDispatch(setHabits(data))
-      setIsVisible(false)
-      initState()
+        user: profile.username,
+      };
+      stableDispatch(setHabits(data));
+      setIsVisible(false);
+      initState();
     }
-  }
+  };
 
   return (
     <>
@@ -208,7 +202,7 @@ export const AddTask = ({ isVisible, setIsVisible }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     const copy = subtasks.concat();
-                    copy.push("");
+                    copy.push({ text: "", isDone: false });
                     setSubtasks(copy);
                   }}
                   className={"add-sub"}

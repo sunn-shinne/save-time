@@ -1,25 +1,29 @@
 import "./ChangeTaskModal.css";
 import Modal from "@material-ui/core/Modal";
-import {makeStyles} from "@material-ui/core/styles";
-import {useCallback, useState} from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { useCallback, useState } from "react";
 import edit from "../../img/icons8-edit.svg";
-import {Button} from "../UI/Button/Button";
+import { Button } from "../UI/Button/Button";
 import TextField from "@material-ui/core/TextField";
-import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
-import {Grid} from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import cross from "../../img/крестик.svg";
 // import DateFnsUtils from "@date-io/date-fns";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import close from "../../img/крестик.svg";
-import {dateToString, timeToString} from "../../utils/dateConfig";
-import {deleteTasks, setTasks, updateTasks} from "../../store/actions/task";
-import {useDispatch, useSelector} from "react-redux";
+import {
+  dateToString,
+  timeToString,
+  timeStringToDate,
+} from "../../utils/dateConfig";
+import { deleteTasks, updateTasks } from "../../store/actions/task";
+import { useDispatch, useSelector } from "react-redux";
 
 const theme = createMuiTheme({
   palette: {
@@ -49,9 +53,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const ChangeTaskModal = ({task}) => {
+export const ChangeTaskModal = ({ task }) => {
   const auth = useSelector((store) => store.auth);
-  const {profile} = auth;
+  const { profile } = auth;
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
 
@@ -65,9 +69,16 @@ export const ChangeTaskModal = ({task}) => {
     setOpen(true);
   };
 
+  const getTimeToState = (string) => {
+    if (string.length === 0) {
+      return null;
+    }
+    return timeStringToDate(string);
+  };
+
   const [selectedText, setSelectedText] = useState(task.text);
   const [selectedComment, setSelectedComment] = useState(task.comment);
-  const [selectedTime, setSelectedTime] = useState(task.time);
+  const [selectedTime, setSelectedTime] = useState(getTimeToState(task.time));
   const [selectedDate, setSelectedDate] = useState(task.date.initDate);
   const [subtasks, setSubtasks] = useState(task.subtasks);
 
@@ -93,10 +104,10 @@ export const ChangeTaskModal = ({task}) => {
         <TextField
           color="primary"
           label={`sub ${i + 1}`}
-          value={subtasks[i]}
+          value={subtasks[i].text}
           onChange={(e) => {
             const copy = subtasks.concat();
-            copy[i] = e.target.value;
+            copy[i] = { ...copy[i], text: e.target.value };
             setSubtasks(copy);
           }}
           defaultValue=""
@@ -125,37 +136,38 @@ export const ChangeTaskModal = ({task}) => {
     ));
 
   const changeData = (e) => {
-    const time = timeToString(selectedTime)
-    let date
+    const time = timeToString(selectedTime);
+    let date;
     if (selectedDate === undefined) {
-      date = dateToString(new Date())
+      date = dateToString(new Date());
     } else {
-      date = dateToString(selectedDate)
+      date = dateToString(selectedDate);
     }
 
-    e.preventDefault()
-    const data = {}
+    e.preventDefault();
+    const data = {};
     data[task.id] = {
       text: selectedText,
       subtasks: subtasks,
       comment: selectedComment,
       time: time,
       date: date,
-      user: profile.username
-    }
+      user: profile.username,
+    };
 
-    stableDispatch(updateTasks(data))
-
-  }
+    stableDispatch(updateTasks(data));
+    setOpen(false);
+  };
 
   const deleteData = (e) => {
-    e.preventDefault()
-    stableDispatch(deleteTasks(task.id))
-  }
+    e.preventDefault();
+    stableDispatch(deleteTasks(task.id));
+    setOpen(false);
+  };
 
   return (
     <div>
-      <img alt="" src={edit} className={"edit-button"} onClick={handleOpen}/>
+      <img alt="" src={edit} className={"edit-button"} onClick={handleOpen} />
       <Modal open={isOpen} onClose={handleClose} aria-labelledby="change-task">
         <div style={modalStyle} className={classes["change-task-modal"]}>
           <img
@@ -182,7 +194,7 @@ export const ChangeTaskModal = ({task}) => {
                   />
                 </Grid>
 
-                <div className={"add-sub-block"} style={{width: "100%"}}>
+                <div className={"add-sub-block"} style={{ width: "100%" }}>
                   <input
                     onClick={(e) => {
                       e.preventDefault();
@@ -256,7 +268,7 @@ export const ChangeTaskModal = ({task}) => {
                 text={"delete"}
                 type={"submit"}
                 size={"thin"}
-                color={"danger"}
+                color={"primary"}
                 onClick={deleteData}
               />
             </div>
