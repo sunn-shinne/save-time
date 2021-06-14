@@ -15,6 +15,7 @@ export const Task = (props) => {
   if (isChecked) cls.push("done");
 
   const dispatch = useDispatch();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const stableDispatch = useCallback(dispatch, []);
 
   const changeData = (e) => {

@@ -13,6 +13,7 @@ export const HomePage = () => {
 
   const day = new Date();
 
+  // eslint-disable-next-line array-callback-return
   const todayTasks = tasks.filter((item) => {
     if (
       item.date === dateToString(day) &&

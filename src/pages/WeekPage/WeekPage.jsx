@@ -21,8 +21,10 @@ export const WeekPage = () => {
   const currentWeekDates = [];
 
   for (let i = 0; i < 7; i++) {
+    // eslint-disable-next-line array-callback-return
     const todayTasks = tasks.filter((item) => {
       if (
+        // eslint-disable-next-line eqeqeq
         item.date == dateToString(addDays(date.day, i)) &&
         item.user === profile.username
       ) {
