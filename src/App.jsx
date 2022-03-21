@@ -17,7 +17,6 @@ const App = () => {
     stableDispatch(getTasks());
     stableDispatch(getHabits());
 
-    // debugger
   }, []);
 
   if (profile < 1) {

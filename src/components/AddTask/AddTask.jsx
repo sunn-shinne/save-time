@@ -10,7 +10,6 @@ import Radio from "@material-ui/core/Radio";
 import DateFnsUtils from "@date-io/date-fns";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import close from "../../img/крестик.svg";
-import axios from "axios";
 
 import {
   MuiPickersUtilsProvider,

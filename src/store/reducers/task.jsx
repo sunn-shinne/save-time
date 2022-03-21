@@ -24,6 +24,8 @@ export function taskReducer(state = initState, action) {
   switch (action.type) {
     case GET_TASK_SUCCESS:
       return {...state, loading: false, tasks: action.payload};
+    case SET_TASK_SUCCESS:
+        return {...state, loading: false, tasks: action.payload}
     default:
       return state
   }

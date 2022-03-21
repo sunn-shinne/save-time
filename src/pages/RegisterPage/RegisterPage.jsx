@@ -41,7 +41,7 @@ export const RegisterPage = () => {
       password,
     };
     axios.post(
-      "https://save-time-7d3ab-default-rtdb.europe-west1.firebasedatabase.app/user.json",
+      "https://savetime-a7a7c-default-rtdb.firebaseio.com/user.json",
       data
     );
     history.push("/");

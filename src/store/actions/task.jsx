@@ -8,7 +8,7 @@ import {
 import "firebase/auth";
 
 const baseURL =
-  "https://save-time-7d3ab-default-rtdb.europe-west1.firebasedatabase.app/";
+  "https://savetime-a7a7c-default-rtdb.firebaseio.com/";
 
 export const getTaskSuccess = (tasks) => {
   return {
